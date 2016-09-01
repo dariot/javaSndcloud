@@ -82,13 +82,17 @@ public class SoundcloudDownloader {
 		JTextField clientIdTF = new JTextField();
 		JTextField songTF = new JTextField();
 		
-		JPanel textPanel = new JPanel();
-		songTF.setSize(300, 20);
-		textPanel.add(clientIdLabel);
-		textPanel.add(clientIdTF);
-		textPanel.add(songLabel);
-		textPanel.add(songTF);
-		mainFrame.getContentPane().add(textPanel);
+		JPanel panel = new JPanel(new SpringLayout());
+		panel.add(clientIdLabel);
+		panel.add(clientIdTF);
+		panel.add(songLabel);
+		panel.add(songTF);
+		mainFrame.getContentPane().add(panel);
+		
+		SpringUtilities.makeCompactGrid(panel,
+                2, 2, //rows, cols
+                6, 6,        //initX, initY
+                6, 6);       //xPad, yPad
 //		
 //		JPanel buttonPanel = new JPanel();
 //		JButton downloadBtn = new JButton("Download");
@@ -97,7 +101,7 @@ public class SoundcloudDownloader {
 		
 //		mainFrame.add(mainPanel);
 		
-		mainFrame.setSize(400, 300);
+		mainFrame.pack();
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setLocationRelativeTo(null);
 		mainFrame.setVisible(true);
